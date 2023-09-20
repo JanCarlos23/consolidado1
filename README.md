@@ -27,7 +27,7 @@ int main() {
     // Captura de datos de los padres
     for (int i = 0; i < numPadres; i++) {
         cout << "\nIngrese el nombre del padre #" << (i + 1) << ": ";
-        cin >> padres[i].nombre;
+        getline(cin, padres[i].nombre);
 
         // Captura del nivel de educación
         cout << "¿Nivel de educación del hijo (P para Primario, S para Secundario)?: ";
@@ -59,6 +59,9 @@ int main() {
             cout << "Opción de nivel no válida. Ingrese 'P' o 'S'." << endl;
             i--; // Para volver a preguntar por este padre
         }
+
+        // Consumir el salto de línea dejado por cin para evitar problemas con getline
+        cin.ignore();
     }
 
     // Ordenar a los padres por promedio (descendente)
